@@ -1,6 +1,6 @@
 {
     "name": "nativescript-stomp-client",
-    "version": "0.1.1",
+    "version": "0.1.2",
     "description": "Your awesome NativeScript plugin.",
     "main": "stomp-client",
     "typings": "index.d.ts",
