@@ -1,6 +1,6 @@
 {
     "name": "nativescript-stomp-client",
-    "version": "1.0.0",
+    "version": "0.1.0",
     "description": "Your awesome NativeScript plugin.",
     "main": "stomp-client",
     "typings": "index.d.ts",
@@ -31,7 +31,9 @@
         "NativeScript",
         "JavaScript",
         "Android",
-        "iOS"
+        "iOS",
+        "Websocket",
+        "Stomp"
     ],
     "author": {
         "name": "Your Name",
