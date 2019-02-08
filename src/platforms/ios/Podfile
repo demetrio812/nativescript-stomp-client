@@ -1,2 +1,13 @@
+use_frameworks!
 
 pod "StompClientLib", :git => 'https://github.com/demetrio812/StompClientLib', :commit => '7fb1c42fb5a5c34a35e9b5cd00b0ed0e682e8e7e'
+
+post_install do |installer|
+    installer.pods_project.targets.each do |target|
+        if target.name == 'StompClientLib'
+            target.build_configurations.each do |config|
+                config.build_settings['SWIFT_VERSION'] = '4.0'
+            end
+        end
+    end
+end
