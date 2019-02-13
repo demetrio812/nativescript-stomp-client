@@ -1,6 +1,6 @@
 use_frameworks!
 
-pod "StompClientLib", :git => 'https://github.com/demetrio812/StompClientLib', :commit => '7fb1c42fb5a5c34a35e9b5cd00b0ed0e682e8e7e'
+pod "StompClientLib", :git => 'https://github.com/demetrio812/StompClientLib', :commit => '6c924eebcba3a56e42cac01a531863b13b8aa3eb'
 
 post_install do |installer|
     installer.pods_project.targets.each do |target|

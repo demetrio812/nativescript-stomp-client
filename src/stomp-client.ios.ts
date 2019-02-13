@@ -28,32 +28,30 @@ export class StompClientLibDelegateImpl extends NSObject
     header: any, // NSDictionary
     destination: any // string
   ) {
-    console.log(
-      'stompClientWithClientDidReceiveMessageWithJSONBodyWithHeaderWithDestination'
-    );
-    console.log('destination = ' + destination);
-    console.log('jsonBody = ' + jsonBody);
+    // console.log('stompClientWithClientDidReceiveMessageWithJSONBodyWithHeaderWithDestination');
+    // console.log('destination = ' + destination);
+    // console.log('jsonBody = ' + jsonBody);
     if (this.owner && this.owner.delegate) {
       this.owner.delegate.stompClientDidReceiveMessage(this.owner, destination, jsonBody);
     }
   }
 
   stompClientDidConnectWithClient(client: any) {
-    console.log('stompClientDidConnectWithClient');
+    // console.log('stompClientDidConnectWithClient');
     if (this.owner && this.owner.delegate) {
       this.owner.delegate.stompClientDidConnect(this.owner);
     }
   }
 
   stompClientDidDisconnectWithClient(client: any) {
-    console.log('stompClientDidDisconnectWithClient');
+    // console.log('stompClientDidDisconnectWithClient');
     if (this.owner && this.owner.delegate) {
       this.owner.delegate.stompClientDidDisconnect(this.owner);
     }
   }
 
   serverDidSendReceiptWithClientWithReceiptId(client: any, receiptId: string) {
-    console.log('serverDidSendReceiptWithClientWithReceiptId');
+    // console.log('serverDidSendReceiptWithClientWithReceiptId');
     if (this.owner && this.owner.delegate) {
       this.owner.delegate.serverDidSendReceipt(this.owner, receiptId);
     }
@@ -71,7 +69,7 @@ export class StompClientLibDelegateImpl extends NSObject
   }
 
   serverDidSendPing() {
-    console.log('serverDidSendPing');
+    // console.log('serverDidSendPing');
     if (this.owner && this.owner.delegate) {
       this.owner.delegate.serverDidSendPing();
     }
@@ -96,7 +94,6 @@ export class StompClient extends StompClientCommon {
   }
 
   public openSocketWithURL(url: string) {
-    console.log('dem');
     // this.socketClient.delegate = null;
     // this.socketClient.urlRequest = NSURLRequest.requestWithURL(NSURL.URLWithString(url));
     // this.socketClient.openSocket();
