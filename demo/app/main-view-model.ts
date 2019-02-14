@@ -3,6 +3,9 @@ import {StompClient} from 'nativescript-stomp-client';
 import {StompClientCallback, StompClientCommon} from "../../src/stomp-client.common";
 
 export class HelloWorldModel extends Observable implements StompClientCallback {
+    private static url = 'ws://192.168.1.173:9999/websockets';
+    private static topicReceive = '/app/receive';
+    private static topicSend = '/topic/send';
     private stompClient: StompClient;
 
     constructor() {
@@ -12,7 +15,7 @@ export class HelloWorldModel extends Observable implements StompClientCallback {
 
     connect() {
         console.log('connecting...');
-        this.stompClient.openSocketWithURL('ws://192.168.1.199:8983/ws');
+        this.stompClient.openSocketWithURL(HelloWorldModel.url);
     }
 
     disconnect() {
@@ -21,29 +24,33 @@ export class HelloWorldModel extends Observable implements StompClientCallback {
         this.stompClient.disconnect();
     }
 
+    sendMessage() {
+        console.log('sendMessage');
+        this.stompClient.sendMessage('Hello world!', HelloWorldModel.topicReceive)
+    }
+
     serverDidSendError(client: StompClientCommon, description: string, message: string) {
-        console.log("serverDidSendError: " + description + " - " + message);
+        console.log(`serverDidSendError: ${description} - ${message}`);
     }
 
     serverDidSendPing() {
-        console.log("serverDidSendPing");
+        console.log('serverDidSendPing');
     }
 
     serverDidSendReceipt(client: StompClientCommon, receiptId: string) {
-        console.log("serverDidSendReceipt: " + receiptId);
+        console.log(`serverDidSendReceipt: ${receiptId}`);
     }
 
     stompClientDidConnect(client: StompClientCommon) {
-        console.log("11stompClientDidConnect");
-        let topic = "/topic/greetings";
-        this.stompClient.subscribe(topic);
+        console.log('stompClientDidConnect');
+        this.stompClient.subscribe(HelloWorldModel.topicSend);
     }
 
     stompClientDidDisconnect(client: StompClientCommon) {
-        console.log("stompClientDidDisconnect");
+        console.log('stompClientDidDisconnect');
     }
 
     stompClientDidReceiveMessage(client: StompClientCommon, destination: string, jsonBody: string) {
-        console.log("stompClientDidReceiveMessage: " + destination + " - " + jsonBody);
+        console.log(`stompClientDidReceiveMessage: ${destination} - ${jsonBody}`);
     }
 }

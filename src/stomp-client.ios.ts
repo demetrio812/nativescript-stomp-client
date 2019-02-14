@@ -4,6 +4,7 @@ import { StompClientCallback, StompClientCommon } from './stomp-client.common';
     fun openSocketWithURL()
 }*/
 
+// TODO generate types
 declare var StompClientLib: any;
 export declare class StompClientLibDelegate {}
 
@@ -97,6 +98,7 @@ export class StompClient extends StompClientCommon {
     // this.socketClient.delegate = null;
     // this.socketClient.urlRequest = NSURLRequest.requestWithURL(NSURL.URLWithString(url));
     // this.socketClient.openSocket();
+    this.currentUrl = url;
     this.socketClient.openSocketWithURLRequestWithRequestDelegate(
       NSURLRequest.requestWithURL(NSURL.URLWithString(url)),
       this.iosDelegate
@@ -108,6 +110,11 @@ export class StompClient extends StompClientCommon {
   }
 
   public disconnect() {
+    this.currentUrl = null;
     this.socketClient.disconnect();
+  }
+
+  public sendMessage(message: string, toDestination: String, withHeaders?: Map<String, String>, withReceipt?: string) {
+    this.socketClient.sendMessageWithMessageToDestinationWithHeadersWithReceipt(message, toDestination, withHeaders, withReceipt);
   }
 }

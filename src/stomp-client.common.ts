@@ -36,6 +36,10 @@ export class StompClientCommon extends Observable {
     public disconnect() {
 
     }
+
+    public sendMessage(message: string, toDestination: String, withHeaders?: Map<String, String>, withReceipt?: string) {
+
+    }
 }
 
 export class Utils {

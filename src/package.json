@@ -1,6 +1,6 @@
 {
     "name": "nativescript-stomp-client",
-    "version": "0.1.5",
+    "version": "0.5.0",
     "description": "Your awesome NativeScript plugin.",
     "main": "stomp-client",
     "typings": "index.d.ts",
@@ -21,6 +21,7 @@
         "plugin.tscwatch": "npm run tsc -- -w",
         "demo.ios": "npm run tsc && cd ../demo && tns run ios --syncAllFiles --emulator",
         "demo.android": "npm run tsc && cd ../demo && tns run android --syncAllFiles --emulator",
+        "demo.android.device": "npm run tsc && cd ../demo && tns run android --syncAllFiles --device 1256c81a",
         "demo.reset": "cd ../demo && npx rimraf -- hooks node_modules platforms package-lock.json",
         "plugin.prepare": "npm run build && cd ../demo && tns plugin remove nativescript-stomp-client && tns plugin add ../src",
         "clean": "npm run demo.reset && npx rimraf -- node_modules package-lock.json && npm i",

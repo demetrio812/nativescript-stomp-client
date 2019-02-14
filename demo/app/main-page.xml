@@ -2,7 +2,8 @@
   xmlns:ui="nativescript-stomp-client">
   <StackLayout class="p-20">
     <Label text="Stomp Client Demo" class="t-20 text-center c-black" textWrap="true"/>
-    <Button text="Connect" tap="{{ connect }}"></Button>
+    <Button text="Connect and subscribe" tap="{{ connect }}"></Button>
+    <Button text="Send message" tap="{{ sendMessage }}"></Button>
     <Button text="Disconnect" tap="{{ disconnect }}"></Button>
   </StackLayout>
 </Page>

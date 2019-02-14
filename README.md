@@ -49,11 +49,17 @@ export interface StompClientCallback {
 }
 ```
 
+## Android limitations
+1. event `serverDidSendPing` is not yet implemented
+2. `sendMessage`: parameters `withHeaders` and `withReceipt` are ignored
+3. event `serverDidSendReceipt` doesn't contain the `receiptId` (it's always `undefined`)
+4. `stompClientDidReceiveMessage`: parameter `destination` is not sent (it's always `undefined`)
+
+
 ## TODO
 
-* Android version
-* Add more methods to the interface (only tested for receiving messages, not sending)
-* Test sending messages
+* Test with more servers
+* Remove Android limitations
     
 ## License
 
