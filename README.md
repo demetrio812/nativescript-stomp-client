@@ -11,8 +11,6 @@ tns plugin add nativescript-stomp-client
 ```
 
 ## Usage 
-
-Describe any usage specifics for your plugin. Give examples for Android, iOS, Angular if needed. See [nativescript-drop-down](https://www.npmjs.com/package/nativescript-drop-down) for example.
 	
 ```typescript
 	// Create the instance
